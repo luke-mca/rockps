@@ -23,10 +23,19 @@
     counter.classList.add('counter');
     counter.textContent = wins+" wins, "+losses+" losses, "+ties+" ties. ";
     body.appendChild(counter);
+    const winAnn = document.createElement('div');
+    winAnn.classList.add('winAnn');
+    body.appendChild(winAnn);
     btns.forEach((btn) => {
         btn.addEventListener('click', () => {
             console.log(playRound(btn.id, getComputerChoice()));
             counter.textContent = wins+" wins, "+losses+" losses, "+ties+" ties. ";
+            if (wins == 5) {
+                winAnn.textContent = "YOU WIN!";
+            }
+            if (losses == 5) {
+                winAnn.textContent = "YOU LOSE!";
+            }
         });
     });
 </script>

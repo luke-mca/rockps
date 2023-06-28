@@ -6,8 +6,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script src="script.js"></script>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <div id="container">
+        <button id="rock">ROCK</button>
+        <button id="paper">PAPER</button>
+        <button id="scissors">SCISSORS</button>
+    </div>
+<script>
+    const btns = document.querySelectorAll('button');
     
+    let wins=0, losses=0, ties=0;
+    const body = document.querySelector('body');
+    const counter = document.createElement('div');
+    counter.classList.add('counter');
+    counter.textContent = wins+" wins, "+losses+" losses, "+ties+" ties. ";
+    body.appendChild(counter);
+    btns.forEach((btn) => {
+        btn.addEventListener('click', () => {
+            console.log(playRound(btn.id, getComputerChoice()));
+            counter.textContent = wins+" wins, "+losses+" losses, "+ties+" ties. ";
+        });
+    });
+</script>
 </body>
 </html>
